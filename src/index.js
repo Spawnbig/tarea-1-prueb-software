@@ -1,6 +1,7 @@
 const express = require('express');
 const setupRoutes = require('./routes');
 const { PORT } = require('./config/enviromental');
+const { generateVehicles } = require('./utils/generator');
 
 
 const app = express()
@@ -11,6 +12,8 @@ setupRoutes(app)
 const startServer = async () => {
     try {
         app.listen(PORT, () => {
+            const vehicles = generateVehicles(10)
+            console.log(vehicles)
             console.log(`Server listening on port ${PORT}`)
         })
     } catch (err) {
