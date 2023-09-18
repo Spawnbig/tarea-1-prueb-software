@@ -8,12 +8,12 @@ const VEHICLE_TYPE = [
     {
         type: 'Camioneta',
         motor: ['2.4cc', '3.0cc','4.0cc'],
-        cabinas: [1, 2],
+        cabins: [1, 2],
     },
     {
         type: 'SUV',
         motor: ['1.8cc', '2.2cc','2.8cc'],
-        sunRoof: ['Si','No']
+        sunRoof: [true,false]
     }
 ]
 
