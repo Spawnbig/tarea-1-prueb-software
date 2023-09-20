@@ -16,5 +16,6 @@ model Car {
   turbo   Boolean
   type    String
   motor   String
-  sunRoof Boolean
+  cabins  Int?
+  sunRoof Boolean?
 }

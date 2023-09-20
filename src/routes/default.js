@@ -4,7 +4,7 @@ const { Router } = require('express');
 const router = Router();
 
 router.get('/', defaultController.helloWorld);
-router.post('/add-random-cars', defaultController.addRandomCars);
+router.get('/add-random-cars', defaultController.addRandomCars);
 router.get('/cars', defaultController.getCars);
 
 module.exports = router;

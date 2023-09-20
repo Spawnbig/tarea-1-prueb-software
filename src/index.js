@@ -15,7 +15,7 @@ const startServer = async () => {
     try {
         app.listen(PORT, () => {
             const vehicles = generateVehicles(10);
-            console.log(vehicles);
+            //console.log(vehicles);
             console.log(`Server listening on port ${PORT}`);
         });
     } catch (err) {
