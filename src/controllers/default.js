@@ -1,7 +1,6 @@
+const req = require('express/lib/request');
 const { generateVehicles } = require('../utils/generator');
-const { PrismaClient } = require('@prisma/client');
-
-const prisma = new PrismaClient();
+const carRepository = require('../repository/CarRepository');
 
 const vehicles = generateVehicles(10);
 
@@ -10,22 +9,17 @@ const helloWorld = (req, res) => {
 };
 
 const getCars = async (req, res) => {
-    const result = await prisma.car.findMany();
+    const result = await carRepository.getCars();
     res.json(result);
 };
 
 const addRandomCars = async (req, res) => {
-    /*let vehicle = { ...vehicles[0]};
-    const result = await prisma.car.create({
-        data: vehicle,
-    });
-    res.json(result);*/
-
     vehicles.forEach(async (vehicle) => {
-        //console.log(vehicle);
-        const result = await prisma.car.create({
+        /*const result = await prisma.car.create({
             data: vehicle,
-        });
+        });*/
+
+        const result = await carRepository.createCar(vehicle);
     }
     );
     res.json({ message: 'Cars added' });
