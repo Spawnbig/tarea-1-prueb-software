@@ -18,4 +18,5 @@ model Car {
   motor   String
   cabins  Int?
   sunRoof Boolean?
+  popularity Int @default(0)
 }
