@@ -15,10 +15,6 @@ const getCars = async (req, res) => {
 
 const addRandomCars = async (req, res) => {
     vehicles.forEach(async (vehicle) => {
-        /*const result = await prisma.car.create({
-            data: vehicle,
-        });*/
-
         const result = await carRepository.createCar(vehicle);
     }
     );
