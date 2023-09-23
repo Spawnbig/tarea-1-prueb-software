@@ -25,9 +25,9 @@ Módulo diseñado para una automotora, permite generar una serie de automóviles
     `npm i`
 
 ### 3. Crear base de datos
-El siguiente cómando creará una base de datos sqlite utilizada para facilitar el filtrado de datos en la carpeta `./prisma/dev.db` 
+El siguiente cómando creará una base de datos sqlite en la ruta `./prisma/dev.db` 
 
-npx prisma migrate dev --name init
+    `npx prisma migrate dev --name init`
 
 ### 3. Ejecución de la aplicación
 
