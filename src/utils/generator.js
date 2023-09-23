@@ -7,7 +7,7 @@ const generateVehicles = (numberOfVehicles) => {
             brand: getRandomFromArray(BRANDS),
             year: getRandomNumberBetween(2015,2018),
             color: getRandomFromArray(COLORS),
-            price: priceFormatter.format(getRandomNumberBetween(8000000, 30000000)),
+            price: getRandomNumberBetween(8000000, 30000000),
             turbo: getRandomFromArray([true,false]),
             ...processObject(getRandomFromArray(VEHICLE_TYPE)),
         })

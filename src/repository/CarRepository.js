@@ -8,10 +8,6 @@ const createCar = async (car) => {
     });
 };
 
-const getCars = async () => {
-    return prisma.car.findMany();
-};
-
 const getCarById = async (id) => {
     return await prisma.car.findUnique({
         where: {
@@ -29,47 +25,16 @@ const updateCar = async (id, car) => {
     });
 };
 
-const deleteCar = async (id) => {
-    return await prisma.car.delete({
-        where: {
-            id: parseInt(id),
-        },
-    });
-};
-
-const getCarByColor = async (color) => {
+const getVehiclesFromQuery = async (query) => {
     return await prisma.car.findMany({
-        where: {
-            color: color,
-        },
+        where: query,
     });
-};
+}
 
-const getCarByPrice = async (maxPrice) => {
-    return await prisma.car.findMany({
-        where: {
-            price: {
-                lt: maxPrice, // lt significa "menor que"
-            },
-        },
-    });
-};
-
-const getCarByType = async (type) => {
-    return await prisma.car.findMany({
-        where: {
-            type: type,
-        },
-    });
-};
 
 module.exports = {
     createCar,
-    getCars,
     getCarById,
     updateCar,
-    deleteCar,
-    getCarByColor,
-    getCarByPrice,
-    getCarByType,
+    getVehiclesFromQuery,
 };

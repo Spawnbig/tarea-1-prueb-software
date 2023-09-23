@@ -8,7 +8,6 @@ const vehicleGenerator = async (number) => {
     }
 }
 
-
 module.exports = {
     vehicleGenerator
 }

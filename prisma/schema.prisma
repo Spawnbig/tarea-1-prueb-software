@@ -12,7 +12,7 @@ model Car {
   brand   String
   year    Int
   color   String
-  price   String
+  price   Int
   turbo   Boolean
   type    String
   motor   String

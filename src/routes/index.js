@@ -1,10 +1,10 @@
-const defaultRoutes = require('./default')
 const generatorRoutes = require('./generator.routes')
-const { generatorRoutePrefix } = require('../utils/constants')
+const vehiclesRoutes = require('./vehicles.routes')
+const { GENERATORROUTES_PREFIX, VEHICLESROUTES_PREFIX } = require('../utils/constants')
 
 function setupRoutes(app) {
-    app.use('/', defaultRoutes)
-    app.use(generatorRoutePrefix, generatorRoutes)
+    app.use(GENERATORROUTES_PREFIX, generatorRoutes)
+    app.use(VEHICLESROUTES_PREFIX, vehiclesRoutes)
 }
 
 module.exports = setupRoutes
