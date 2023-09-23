@@ -14,28 +14,32 @@ Módulo diseñado para una automotora, permite generar una serie de automóviles
 - Funcionalidad especial para agentes que muestra la popularidad del vehículo junto con el filtrado
 
 
-## Instalación
+## Instalación  
 
-1. Clonar el repositorio
+### 1. Clonar el repositorio
 
 `git clone https://github.com/Spawnbig/tarea-1-prueb-software.git`
 
-2. Instalación de dependencias 
+### 2. Instalación de dependencias 
 
-`npm i`
+    `npm i`
 
-3. Ejecución de la aplicación
+### 3. Crear base de datos
+El siguiente cómando creará una base de datos sqlite utilizada para facilitar el filtrado de datos en la carpeta `./prisma/dev.db` 
+
+npx prisma migrate dev --name init
+
+### 3. Ejecución de la aplicación
 
 Modo Desarrollo
 
-`npm run dev`
+    `npm run dev`
 
 Modo producción
 
-`npm run start`
+    `npm run start`
 
 ## Autores
-
 - Jorge Mainhard
 - Nicolas Rivas
 - Nicolas Sanhueza

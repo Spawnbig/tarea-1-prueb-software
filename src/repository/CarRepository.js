@@ -6,11 +6,11 @@ const createCar = async (car) => {
     return await prisma.car.create({
         data: car,
     });
-}
+};
 
 const getCars = async () => {
     return prisma.car.findMany();
-}
+};
 
 const getCarById = async (id) => {
     return await prisma.car.findUnique({
@@ -18,16 +18,16 @@ const getCarById = async (id) => {
             id: parseInt(id),
         },
     });
-}
+};
 
-const  updateCar = async (id, car) => {
+const updateCar = async (id, car) => {
     return await prisma.car.update({
         where: {
             id: parseInt(id),
         },
         data: car,
     });
-}
+};
 
 const deleteCar = async (id) => {
     return await prisma.car.delete({
@@ -35,7 +35,7 @@ const deleteCar = async (id) => {
             id: parseInt(id),
         },
     });
-}
+};
 
 const getCarByColor = async (color) => {
     return await prisma.car.findMany({
@@ -43,7 +43,7 @@ const getCarByColor = async (color) => {
             color: color,
         },
     });
-}
+};
 
 const getCarByPrice = async (maxPrice) => {
     return await prisma.car.findMany({
@@ -53,8 +53,7 @@ const getCarByPrice = async (maxPrice) => {
             },
         },
     });
-}
-
+};
 
 const getCarByType = async (type) => {
     return await prisma.car.findMany({
@@ -62,8 +61,7 @@ const getCarByType = async (type) => {
             type: type,
         },
     });
-}
-
+};
 
 module.exports = {
     createCar,
@@ -75,9 +73,3 @@ module.exports = {
     getCarByPrice,
     getCarByType,
 };
-
-
-
-
-
-    
