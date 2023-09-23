@@ -25,6 +25,12 @@ const updateCar = async (id, car) => {
     });
 };
 
+/**
+ * Retrieves vehicles from a database using a query.
+ * 
+ * @param {object} query - The query object that specifies the filter conditions for the vehicles to retrieve from the database.
+ * @returns {Promise<Array>} - An array of vehicles that match the query conditions.
+ */
 const getVehiclesFromQuery = async (query) => {
     return await prisma.car.findMany({
         where: query,
