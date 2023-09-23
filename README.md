@@ -18,26 +18,26 @@ Módulo diseñado para una automotora, permite generar una serie de automóviles
 
 ### 1. Clonar el repositorio
 
-`git clone https://github.com/Spawnbig/tarea-1-prueb-software.git`
+    git clone https://github.com/Spawnbig/tarea-1-prueb-software.git
 
 ### 2. Instalación de dependencias 
 
-    `npm i`
+    npm i
 
 ### 3. Crear base de datos
 El siguiente cómando creará una base de datos sqlite en la ruta `./prisma/dev.db` 
 
-    `npx prisma migrate dev --name init`
+    npx prisma migrate dev --name init
 
 ### 3. Ejecución de la aplicación
 
 Modo Desarrollo
 
-    `npm run dev`
+    npm run dev
 
 Modo producción
 
-    `npm run start`
+    npm run start
 
 ## Autores
 - Jorge Mainhard
