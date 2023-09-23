@@ -3,6 +3,6 @@ const { Router } = require('express');
 
 const router = Router();
 
-router.get('', vehicleController.filterVehicles);
+router.get('', vehicleController.searchVehicles);
 
 module.exports = router;
