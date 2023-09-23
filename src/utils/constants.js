@@ -17,6 +17,8 @@ const VEHICLE_TYPE = [
     }
 ]
 
+const generatorRoutePrefix = '/generator'
+
 const priceFormatter = new Intl.NumberFormat('es-CL', {
     currency: 'CLP',
     style: 'currency',
@@ -26,5 +28,6 @@ module.exports = {
     BRANDS,
     COLORS,
     VEHICLE_TYPE,
-    priceFormatter
+    priceFormatter,
+    generatorRoutePrefix
 }
