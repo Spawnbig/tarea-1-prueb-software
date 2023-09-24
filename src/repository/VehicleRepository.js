@@ -2,25 +2,15 @@ const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
+
+/**
+ * Adds a new vehicle to a database.
+ * 
+ * @param {object} vehicles - The vehicle object to add to the database.
+ * @returns {Promise<Object>} - The vehicle object that was added to the database.
+ */
 const createCar = async (vehicles) => {
     return await prisma.vehicles.create({
-        data: vehicles,
-    });
-};
-
-const getCarById = async (id) => {
-    return await prisma.car.findUnique({
-        where: {
-            id: parseInt(id),
-        },
-    });
-};
-
-const updateCar = async (id, vehicles) => {
-    return await prisma.vehicles.update({
-        where: {
-            id: parseInt(id),
-        },
         data: vehicles,
     });
 };
@@ -56,11 +46,32 @@ const incrementPopularity = async (query) => {
     return await getVehiclesFromQuery(query);
 }
 
+/**
+ * Increments the popularity of a vehicle with a given ID and then retrieves the updated vehicle.
+ * @param {*} id  - The ID of the vehicle to update.
+ * @returns {Promise<Object>} - The vehicle with the given ID and its popularity updated.
+ */
+const incrementPopularityById = async (id) => {
+    const vehicle = 
+    await prisma.vehicles.update({
+        where: {
+            id: parseInt(id),
+        },
+        data: {
+            popularity: {
+                increment: 1,
+            },
+        },
+    });
+    return vehicle;
+};
+
+
+
 
 module.exports = {
     createCar,
-    getCarById,
-    updateCar,
     getVehiclesFromQuery,
-    incrementPopularity
+    incrementPopularity,
+    incrementPopularityById,
 };

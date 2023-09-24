@@ -1,4 +1,4 @@
-const { getVehiclesFromQuery, incrementPopularity } = require('../repository/CarRepository');
+const { getVehiclesFromQuery, incrementPopularity, incrementPopularityById } = require('../repository/VehicleRepository');
 
 
 
@@ -65,6 +65,17 @@ const buildQuery = (price, type, color) => {
     };
 }
 
+/**
+ * Increments the popularity of a vehicle with a given ID and then retrieves the updated vehicle.
+ * @param {*} id - The ID of the vehicle to update.
+ * @returns {Promise<Object>} - The vehicle with the given ID and its popularity updated.
+ */
+const contactAgency = async (id) => {
+    const vehicle = await incrementPopularityById(id);
+    return vehicle;
+}
+
 module.exports = {
-    findVehicles
+    findVehicles,
+    contactAgency
 }

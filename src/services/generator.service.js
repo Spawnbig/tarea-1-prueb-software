@@ -1,5 +1,5 @@
 const { generateVehicles } = require("../utils/generator")
-const CarRepository = require("../repository/CarRepository");
+const VehicleRepository = require("../repository/VehicleRepository");
 
 /**
  * Asynchronous function that generates a specified number of vehicles.
@@ -10,7 +10,7 @@ const CarRepository = require("../repository/CarRepository");
 const vehicleGenerator = async (number) => {
     const vehicles = generateVehicles(number);
     for (const vehicle of vehicles) {
-        await CarRepository.createCar(vehicle);
+        await VehicleRepository.createCar(vehicle);
     }
 }
 

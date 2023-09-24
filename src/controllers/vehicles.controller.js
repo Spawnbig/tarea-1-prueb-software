@@ -1,4 +1,4 @@
-const { findVehicles } = require('../services/vehicles.service');
+const { findVehicles, contactAgency } = require('../services/vehicles.service');
 const catchAsyncErrors = require('../utils/catch_async_errors');
 
 /**
@@ -19,6 +19,22 @@ const searchVehicles = catchAsyncErrors(async (req, res) => {
     res.json(filteredVehicles);
 })
 
+/**
+ * A callback function used as a parameter for the 'catchAsyncErrors' function.
+ * It increments the popularity of a vehicle with a given ID and then retrieves the updated vehicle.
+ * 
+ * @param {Object} req - The request object containing the ID of the vehicle to update.
+ * @param {Object} res - The response object used to send the JSON response.
+ * @returns {Promise<void>} - The updated vehicle as a JSON response.
+ */
+const contactAgencyById = catchAsyncErrors(async (req, res) => {
+    const { id } = req.params;
+    const vehicle = await contactAgency(id);
+    res.json(vehicle);
+})
+
+
 module.exports = {
-    searchVehicles
+    searchVehicles,
+    contactAgencyById
 }
