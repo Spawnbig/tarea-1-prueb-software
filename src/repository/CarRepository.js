@@ -2,9 +2,9 @@ const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-const createCar = async (car) => {
-    return await prisma.car.create({
-        data: car,
+const createCar = async (vehicles) => {
+    return await prisma.vehicles.create({
+        data: vehicles,
     });
 };
 
@@ -16,12 +16,12 @@ const getCarById = async (id) => {
     });
 };
 
-const updateCar = async (id, car) => {
-    return await prisma.car.update({
+const updateCar = async (id, vehicles) => {
+    return await prisma.vehicles.update({
         where: {
             id: parseInt(id),
         },
-        data: car,
+        data: vehicles,
     });
 };
 
@@ -32,7 +32,7 @@ const updateCar = async (id, car) => {
  * @returns {Promise<Array>} - An array of vehicles that match the query conditions.
  */
 const getVehiclesFromQuery = async (query) => {
-    return await prisma.car.findMany({
+    return await prisma.vehicles.findMany({
         where: query,
     });
 }

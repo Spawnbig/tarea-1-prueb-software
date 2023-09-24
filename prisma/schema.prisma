@@ -7,7 +7,7 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model Car {
+model vehicles {
   id      Int     @id @default(autoincrement())
   brand   String
   year    Int

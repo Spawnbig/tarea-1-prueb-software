@@ -1,6 +1,6 @@
 const express = require('express');
 const setupRoutes = require('./routes');
-const { PORT } = require('./config/enviromental');
+const { PORT } = require('./config/env_settings');
 const { PrismaClient } = require('@prisma/client');
 const errorHandlerMiddleware = require('./middlewares/error_handler');
 
