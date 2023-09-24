@@ -1,4 +1,4 @@
-const { filterVehicles } = require('../services/vehicles.service');
+const { findVehicles } = require('../services/vehicles.service');
 const catchAsyncErrors = require('../utils/catch_async_errors');
 
 /**
@@ -10,8 +10,12 @@ const catchAsyncErrors = require('../utils/catch_async_errors');
  * @returns {Promise<void>} - The filtered vehicles as a JSON response.
  */
 const searchVehicles = catchAsyncErrors(async (req, res) => {
-    const { price, type, color } = req.query;
-    const filteredVehicles = await filterVehicles(price, type, color)
+    const { price, type, color, isAgent } = req.query;
+    const filteredVehicles = await findVehicles({
+        price,
+        type,
+        color,
+    }, isAgent);
     res.json(filteredVehicles);
 })
 

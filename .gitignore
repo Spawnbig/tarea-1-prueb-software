@@ -27,3 +27,7 @@ Thumbs.db
 prisma/*.db
 prisma/*.db-journal
 prisma/migrations/
+
+# Sonarqube
+.sonarqube/
+.scannerwork/

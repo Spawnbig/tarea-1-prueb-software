@@ -1,16 +1,23 @@
-const { getVehiclesFromQuery } = require('../repository/CarRepository');
+const { getVehiclesFromQuery, incrementPopularity } = require('../repository/CarRepository');
+
+
 
 /**
- * Filters vehicles based on the provided price, type, and color.
+ * Filters vehicles based on the provided parameters.
  * 
- * @param {number} price - The maximum price of the vehicles to filter. If not provided, all vehicles will be considered.
- * @param {string} type - The type of vehicles to filter. If not provided, all types will be considered.
- * @param {string} color - The color of vehicles to filter. If not provided, all colors will be considered.
- * @returns {Promise<Array>} - An array of vehicles that match the provided filter criteria.
+ * @param {Object} options - The filter options.
+ * @param {number} options.price - The maximum price of the vehicles to filter.
+ * @param {string} options.type - The type of vehicles to filter (e.g., sedan, SUV).
+ * @param {string} options.color - The color of vehicles to filter.
+ * @param {any} isAgent - Indicates if the user is an agent. 
+ * @returns {Promise<Array<Object>>} - An array of vehicles that match the provided parameters, optionally updated if the user is an agent.
  */
-const filterVehicles = async (price, type, color) => {
+const findVehicles = async ({ price, type, color }, isAgent) => {
     const query = buildQuery(price, type, color);
-    return await getVehiclesFromQuery(query);
+    const vehicles = await getVehiclesFromQuery(query);
+    return isAgent
+        ? (incrementPopularity(query), vehicles)
+        : vehicles.map(({ popularity, ...vehicleResponse }) => vehicleResponse);
 }
 
 /**
@@ -59,5 +66,5 @@ const buildQuery = (price, type, color) => {
 }
 
 module.exports = {
-    filterVehicles
+    findVehicles
 }

@@ -37,10 +37,30 @@ const getVehiclesFromQuery = async (query) => {
     });
 }
 
+/**
+ * Updates the popularity of vehicles in a database.
+ * It increments the popularity of vehicles that match a given query and then retrieves the updated vehicles.
+ *
+ * @param {object} query - A query object specifying the criteria for selecting the vehicles to update.
+ * @returns {Promise<Array>} - An array of vehicles that match the given query and have their popularity updated.
+ */
+const incrementPopularity = async (query) => {
+    await prisma.vehicles.updateMany({
+        where: query,
+        data: {
+            popularity:{
+                increment: 1
+            }
+        }
+    });
+    return await getVehiclesFromQuery(query);
+}
+
 
 module.exports = {
     createCar,
     getCarById,
     updateCar,
     getVehiclesFromQuery,
+    incrementPopularity
 };
