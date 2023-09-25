@@ -1,7 +1,6 @@
 const {
     getVehiclesFromQuery,
     incrementPopularity,
-    incrementPopularityById,
 } = require('../repository/vehicle.repository');
 
 /**
