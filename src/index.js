@@ -13,12 +13,22 @@ app.use(express.json());
 setupRoutes(app);
 app.use(errorHandlerMiddleware);
 
+/**
+ * Resets the 'car' table in the database by deleting all records.
+ * 
+ * @returns {Promise<void>} A promise that resolves when the reset process is finished.
+ */
 const reset = async () => {
     console.log(`Reset is set. Start reseting ...`);
     await prisma.car.deleteMany();
     console.log(`Reset finished.`);
 };
 
+/**
+ * Starts a server using the Express framework.
+ * The server listens on the specified port and logs a message when it starts.
+ * @returns {void}
+ */
 const startServer = async () => {
     try {
         if (isReset) {

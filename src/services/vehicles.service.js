@@ -51,7 +51,14 @@ const buildPriceQuery = (price) => {
     };
 };
 
-// WIP
+
+/**
+ * Builds a query object for a given ID value.
+ *
+ * @param {number} id - The ID of the vehicle.
+ * @returns {Object} - The query object with a property `id` set to the parsed integer value of the `id` parameter. 
+ * If the `id` parameter is falsy, an empty object `{}` is returned.
+ */
 const buildIdQuery = (id) => {
     if (!id) return {};
     return {
