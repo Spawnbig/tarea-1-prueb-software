@@ -15,7 +15,7 @@ const createCar = async (vehicle) => {
 };
 
 /**
- * Retrieves vehicles from a database using a query.
+ * Retrieves vehicles from database using a query.
  *
  * @param {object} query - The query object that specifies the filter conditions for the vehicles to retrieve from the database.
  * @returns {Promise<Array>} - An array of vehicles that match the query conditions.
@@ -27,7 +27,7 @@ const getVehiclesFromQuery = async (query) => {
 };
 
 /**
- * Updates the popularity of vehicles in a database.
+ * Updates the popularity of vehicles in database.
  * It increments the popularity of vehicles that match a given query and then retrieves the updated vehicles.
  *
  * @param {object} query - A query object specifying the criteria for selecting the vehicles to update.
