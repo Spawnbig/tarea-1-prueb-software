@@ -3,14 +3,14 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 /**
- * Adds a new vehicle to a database.
+ * Adds a new vehicle to database.
  *
- * @param {object} vehicles - The vehicle object to add to the database.
+ * @param {object} vehicle - The vehicle object to add to the database.
  * @returns {Promise<Object>} - The vehicle object that was added to the database.
  */
-const createCar = async (vehicles) => {
+const createCar = async (vehicle) => {
     return await prisma.vehicles.create({
-        data: vehicles,
+        data: vehicle,
     });
 };
 
