@@ -22,3 +22,12 @@ node_modules/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# DB
+prisma/*.db
+prisma/*.db-journal
+prisma/migrations/
+
+# Sonarqube
+.sonarqube/
+.scannerwork/
