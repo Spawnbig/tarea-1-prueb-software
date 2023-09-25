@@ -49,5 +49,4 @@ module.exports = {
     createCar,
     getVehiclesFromQuery,
     incrementPopularity,
-    incrementPopularityById,
 };
