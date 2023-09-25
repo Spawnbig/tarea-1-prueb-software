@@ -20,7 +20,7 @@ app.use(errorHandlerMiddleware);
  */
 const reset = async () => {
     console.log(`Reset is set. Start reseting ...`);
-    await prisma.car.deleteMany();
+    await prisma.vehicles.deleteMany();
     console.log(`Reset finished.`);
 };
 
