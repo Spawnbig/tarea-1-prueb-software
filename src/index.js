@@ -5,17 +5,16 @@ const { PrismaClient } = require('@prisma/client');
 const errorHandlerMiddleware = require('./middlewares/error_handler');
 
 const prisma = new PrismaClient();
-// TODO: Validate the input
 const isReset = process.argv[2] === 'reset';
 
 const app = express();
 
 app.use(express.json());
 setupRoutes(app);
-app.use(errorHandlerMiddleware)
+app.use(errorHandlerMiddleware);
 
 const reset = async () => {
-    console.log(`Start reseting ...`);
+    console.log(`Reset is set. Start reseting ...`);
     await prisma.car.deleteMany();
     console.log(`Reset finished.`);
 };

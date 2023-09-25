@@ -8,15 +8,15 @@ datasource db {
 }
 
 model vehicles {
-  id      Int     @id @default(autoincrement())
-  brand   String
-  year    Int
-  color   String
-  price   Int
-  turbo   Boolean
-  type    String
-  motor   String
-  cabins  Int?
-  sunRoof Boolean?
-  popularity Int @default(0)
+  id         Int      @id @default(autoincrement())
+  brand      String
+  year       Int
+  color      String
+  price      Int
+  turbo      Boolean
+  type       String
+  motor      String
+  cabins     Int?
+  sunRoof    Boolean?
+  popularity Int      @default(0)
 }
